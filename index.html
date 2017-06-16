@@ -12,10 +12,6 @@
         }
       }
       
-      var toggleImage = function(){
-        console.log("toggle");
-      };
-      
       ready(function(){
         var image = document.querySelectorAll('#source')[0];
         image.addEventListener('load', processImage);
@@ -24,12 +20,13 @@
       
     <style>
       img#target { display: none; }
-      #viewer:hover img#target { display: block;}
-      #viewer:hover img#source {display: none;}
+      #viewer:active img#target, #viewer:hover img#target { display: block;}
+      #viewer:active img#source, #viewer:hover img#source { display: none; }
     </style>
   </head>
   <body>
     <h1>Microdotty</h1>
+    <p>Mouse over (or touch) the image to see it with the gamma cranked up</p>
     <div id="viewer">
       <!-- fetched from https://assets.documentcloud.org/documents/3766950/pages/NSA-Report-on-Russia-Spearphishing-p1-large.gif -->
       <img id="source" src='./NSA-Report-on-Russia-Spearphishing-p1-large.gif' />
