@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script type="text/javascript" src="./emage.min.js"></script>
+    <script type="text/javascript" src="./processImage.js"></script>
+    <script>
+      function ready(fn) {
+        if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading"){
+          fn();
+        } else {
+          document.addEventListener('DOMContentLoaded', fn);
+        }
+      }
+      
+      var toggleImage = function(){
+        console.log("toggle");
+      };
+      
+      ready(function(){
+        var image = document.querySelectorAll('#source')[0];
+        image.addEventListener('load', processImage);
+      });
+    </script>
+      
+    <style>
+      img#target { display: none; }
+      #viewer:hover img#target { display: block;}
+      #viewer:hover img#source {display: none;}
+    </style>
+  </head>
+  <body>
+    <h1>Microdotty</h1>
+    <div id="viewer">
+      <!-- fetched from https://assets.documentcloud.org/documents/3766950/pages/NSA-Report-on-Russia-Spearphishing-p1-large.gif -->
+      <img id="source" src='./NSA-Report-on-Russia-Spearphishing-p1-large.gif' />
+      <img id="target" />
+    </div>
+  </body>
+</html>
